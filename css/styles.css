@@ -1,0 +1,281 @@
+/* ==========================================================================
+   RonTea Portfolio: Compiled Application Styles
+   ========================================================================== */
+/**
+ * RonTea Theme Aggregator (Tailwind Optimized)
+ * Custom modules for animations and theme tokens.
+ */
+/* ==========================================================================
+   RonTea Portfolio: Theme Foundations
+   ========================================================================== */
+:root {
+  --primary-bg: #fafafa;
+  --primary-text: #1a1a1a;
+  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-heading: Space Grotesk, system-ui, sans-serif;
+}
+
+html.dark {
+  --primary-bg: #0a0a0a;
+  --primary-text: #f0f0f0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--primary-bg);
+  color: var(--primary-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+h1, h2, h3, h4, h5, .font-heading {
+  font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+::selection {
+  background-color: var(--primary-text);
+  color: var(--primary-bg);
+}
+
+.border-bottom, .border-top, .border {
+  transition: border-color 0.5s ease;
+}
+
+/* ==========================================================================
+   RonTea Portfolio: Luxury Layout & Motion System
+   ========================================================================== */
+main {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.5s cubic-bezier(0.23, 1, 0.32, 1), transform 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 60s linear infinite;
+  will-change: transform;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.hero-img-col img {
+  object-position: center 20%;
+}
+
+@media (max-width: 767px) {
+  .hero-section {
+    flex-direction: column-reverse;
+  }
+  .hero-section .hero-img-col {
+    min-height: 50vh;
+  }
+  .hero-section .hero-content-col {
+    padding-top: 100px;
+  }
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   RonTea Portfolio: Specific Design Utilities
+   ========================================================================== */
+.tracking-tighter {
+  letter-spacing: -0.06em !important;
+}
+
+.tracking-tight {
+  letter-spacing: -0.025em !important;
+}
+
+.tracking-widest {
+  letter-spacing: 0.25em !important;
+}
+
+.lh-095 {
+  line-height: 0.9 !important;
+}
+
+.lh-1 {
+  line-height: 1 !important;
+}
+
+.max-w-md {
+  max-width: 32rem !important;
+}
+
+.max-w-3xl {
+  max-width: 48rem !important;
+}
+
+.max-w-5xl {
+  max-width: 64rem !important;
+}
+
+.max-w-7xl {
+  max-width: 80rem !important;
+}
+
+.space-y-4 > * + * {
+  margin-top: 1rem !important;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem !important;
+}
+
+.space-y-8 > * + * {
+  margin-top: 2.5rem !important;
+}
+
+.shadow-2xl {
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.15) !important;
+}
+
+html.dark .shadow-2xl {
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6) !important;
+}
+
+.opacity-90 {
+  opacity: 0.9 !important;
+}
+
+.object-fit-cover {
+  object-fit: cover !important;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.4, 0, 0.2, 1), transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   RonTea Portfolio: UI Components Refinement
+   ========================================================================== */
+.navbar.sticky-top {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: all 0.4s ease;
+}
+.navbar.sticky-top.navbar-scrolled {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.btn-support-round {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-support-round:hover {
+  background: var(--primary-text);
+  color: var(--primary-bg);
+  transform: scale(1.1);
+}
+
+.project-card {
+  position: relative;
+}
+.project-card .ratio {
+  border-radius: 2rem;
+  overflow: hidden;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-card .ratio img {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.project-card .project-arrow-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.5rem;
+}
+.project-card:hover .ratio img {
+  transform: scale(1.05);
+}
+.project-card:hover .project-arrow-btn {
+  transform: rotate(45deg) scale(1.1);
+  background: var(--primary-text);
+  color: var(--primary-bg);
+}
+
+.blog-card .ratio {
+  border-radius: 1.5rem;
+}
+.blog-card .ratio img {
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.blog-card:hover .ratio img {
+  transform: scale(1.1);
+}
+
+html.dark .navbar.sticky-top {
+  background-color: rgba(10, 10, 10, 0.8) !important;
+}
+html.dark .project-arrow-btn {
+  background: #111;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.transition-slow {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-blur {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+::selection {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+html.dark ::selection {
+  background-color: #f0f0f0;
+  color: #0a0a0a;
+}
