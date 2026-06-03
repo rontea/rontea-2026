@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THEME3_BUILDER — Rontea Vanilla</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  
+  <div id="app-wrapper" class="rt-vanilla-wrapper dark theme-transition">
+    <!-- Header -->
+    <nav class="rt-header header-bg border-b border-white/5 md:border-none">
+      <a href="index.html" class="rt-back-btn group">
+        <div class="back-circle">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-widest hidden sm:block">Back to Home</span>
+      </a>
+
+      <a href="index.html" class="flex items-center group">
+        <img src="img/logo.png" alt="Rontea Logo" referrerPolicy="no-referrer" class="rt-logo h-10 md:h-12 w-auto object-contain hover:scale-105 transition-all duration-300" />
+      </a>
+      
+      <div class="flex items-center gap-2 sm:gap-4">
+        <button id="theme-toggle" class="p-2 rounded-lg theme-transition bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white dark:bg-white/5 dark:hover:bg-white/10">
+          <i data-lucide="sun" id="theme-icon" class="w-[14px] h-[14px]"></i>
+        </button>
+        <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" class="rt-btn-primary flex items-center gap-2">
+          <i data-lucide="heart" class="w-3 h-3 fill-current"></i>
+          <span class="hidden sm:inline">Support Me</span>
+          <span class="inline sm:hidden">Support</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 md:px-12" id="project-main">
+      <div class="max-w-7xl mx-auto">
+        <!-- Title Header -->
+        <div class="mb-20">
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            <span class="text-xs font-bold font-mono tracking-widest uppercase text-[#FF5F1F]">PROJECT 03</span>
+            <div class="h-px w-12 bg-white/10 bg-decor theme-transition" id="title-line"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#a1a1aa]" id="title-year">
+              2026
+            </span>
+          </div>
+          
+          <h1 class="project-title mb-8" id="proj-title-h1">THEME3_BUILDER</h1>
+          
+          <p class="text-xl md:text-2xl font-light max-w-2xl leading-relaxed text-[#d4d4d8]" id="proj-description">
+            Low-Code Visual Development Platform — THEME3_BUILDER is a visual page-building extension for the Theme_3 ecosystem, designed to empower developers and designers with a low-code interface for constructing responsive web layouts. The platform combines drag-and-drop simplicity with the power and flexibility of Theme_3's underlying build architecture.
+          </p>
+        </div>
+
+        <div class="w-full aspect-[21/9] overflow-hidden rounded-2xl mb-8 bg-zinc-900">
+          <img src="img/theme_3builder.png" alt="THEME3_BUILDER" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-1000" />
+        </div>
+
+        <!-- Metadata & Actions Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center py-8 border-b mb-16 gap-8 border-white/10 theme-border theme-transition" id="action-bar-border">
+          
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="https://github.com/rontea/theme3_builder" target="_blank" class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-filled">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i> Source Code
+            </a>
+            <button disabled class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-line opacity-50 cursor-not-allowed">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> Video Demo
+            </button>
+            <button disabled class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-line opacity-50 cursor-not-allowed">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Tutorial
+            </button>
+          </div>
+
+          <div class="flex items-center gap-12">
+            <div class="flex flex-col items-end">
+              <span class="text-[9px] uppercase font-bold tracking-widest mb-1 text-zinc-500">Year</span>
+              <span class="text-sm font-bold">2026</span>
+            </div>
+            
+            <div class="flex flex-col items-end">
+              <span class="text-[9px] uppercase font-bold tracking-widest mb-1 text-zinc-500">Categories</span>
+              <div class="flex gap-2">
+                <span class="text-sm font-bold whitespace-nowrap">Low-Code</span><span class="text-sm font-bold whitespace-nowrap">Visual Builder</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Vision and Gallery -->
+        <div class="max-w-4xl mx-auto mb-32">
+           <div class="space-y-16">
+              <!-- Overview Section -->
+              <div class="space-y-6">
+                <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                  THEME3_BUILDER is a visual page-building extension for the Theme_3 ecosystem, designed to bridge the gap between visual design and software engineering. The project aims to empower developers, designers, and solution architects with a visual-first development experience while preserving the flexibility, scalability, and control of code-driven workflows.
+                </p>
+                <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                  Built as an evolution of the Theme_3 framework, THEME3_BUILDER introduces a low-code approach to web development by combining reusable component architecture, real-time visual composition, and AI-assisted development capabilities. The long-term vision is to create a unified platform where designing, building, and deploying digital experiences become a seamless and collaborative process.
+                </p>
+              </div>
+
+              <!-- Key Contributions -->
+              <div class="space-y-6">
+                 <h3 class="text-2xl font-black uppercase italic tracking-tighter">Key Contributions</h3>
+                 <ul class="list-none space-y-4 text-lg leading-relaxed text-[#d4d4d8]">
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span>
+                     Built a visual composition engine for assembling pages from reusable, modular components
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span>
+                     Created an interactive drag-and-drop interface with real-time layout rendering and editing capabilities
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span>
+                     Connected visual workflows directly to Theme_3's CLI and build pipeline, ensuring seamless integration with existing development processes
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span>
+                     Improved development efficiency through reusable design patterns, component standardization, and automated layout generation
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span>
+                     Established the architectural foundation for future low-code development tools and AI-assisted website generation workflows
+                   </li>
+                 </ul>
+              </div>
+
+              <!-- Vision -->
+              <div class="space-y-6">
+                 <h3 class="text-2xl font-black uppercase italic tracking-tighter">Vision</h3>
+                 <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                   To redefine modern web development by unifying visual design, component architecture, and intelligent automation into a single development experience. THEME3_BUILDER seeks to eliminate the traditional divide between design and implementation, enabling teams to build scalable, maintainable, and production-ready applications through visual composition, reusable systems, and AI-powered assistance.
+                 </p>
+              </div>
+              
+              <!-- Active Development -->
+              <div class="bg-zinc-900 border border-white/10 p-8 rounded-2xl">
+                 <div class="flex flex-wrap items-center gap-4 mb-6">
+                   <span class="px-4 py-1.5 bg-[#FF5F1F]/20 text-[#FF5F1F] text-[10px] font-bold uppercase tracking-widest rounded-full">In Development</span>
+                   <span class="text-[10px] font-bold uppercase tracking-widest text-[#a1a1aa]">Version: development</span>
+                 </div>
+                 <p class="text-lg md:text-xl leading-relaxed font-light text-[#d4d4d8]">
+                   Building the visual foundation for modern web architecture.
+                 </p>
+              </div>
+           </div>
+        </div>
+
+        <div class="pt-32 border-t border-white/5 next-border theme-transition" id="next-cta-border">
+          <a href="project-04.html" class="group block">
+            <span class="text-xs font-bold uppercase tracking-widest mb-4 block text-zinc-500">Next Project</span>
+            <div class="flex justify-between items-end">
+              <h2 class="text-5xl md:text-8xl font-black uppercase italic tracking-tighter transition-transform group-hover:translate-x-4" id="next-title-cta">THEME_3</h2>
+              <div class="next-project-circle">
+                <i data-lucide="arrow-up-right" class="w-8 h-8"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="py-12 px-6 md:px-12 border-t flex flex-col md:flex-row justify-between items-center gap-8 border-white/5 transition-colors duration-300 mt-20">
+      <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div class="flex flex-wrap justify-center items-center gap-6">
+          <a href="https://github.com/rontea" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="GitHub">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/dupelawebsite" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="X (formerly Twitter)">
+            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rontea/" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="LinkedIn">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="h-4 w-px bg-white/20 hidden md:block"></div>
+        <span class="text-xs font-bold uppercase tracking-[0.4em] opacity-30 text-center" id="footer-text">
+          © 2026 RONTEA. PROJECT 03
+        </span>
+      </div>
+      <div class="flex gap-4">
+         <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all hover:bg-white hover:text-black dark:border-white/10 dark:hover:bg-white dark:hover:text-black hover:border-white">
+           <i data-lucide="share-2" class="w-4 h-4"></i>
+         </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/project.js"></script>
+</body>
+</html>

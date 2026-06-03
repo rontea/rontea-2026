@@ -1,306 +1,388 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Fonts: Inter and Space Grotesk -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rontea Vanilla Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  
+  <div id="app-wrapper" class="rt-vanilla-wrapper dark theme-transition">
+    <!-- Header -->
+    <nav class="rt-header header-bg">
+      <a href="#" class="flex items-center group">
+        <!-- Official Rontea Brand Logo -->
+        <img 
+          src="img/logo.png" 
+          alt="Rontea Logo" 
+          referrerPolicy="no-referrer"
+          class="rt-logo h-10 md:h-12 w-auto object-contain hover:scale-105 transition-all duration-300"
+        />
+      </a>
 
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        darkMode: 'class',
-        theme: {
-          extend: {
-            fontFamily: {
-              sans: ['Inter', 'sans-serif'],
-              heading: ['Space Grotesk', 'sans-serif'],
-            },
-            lineHeight: {
-              'tight-08': '0.8',
-              'tight-09': '0.9',
-            },
-            letterSpacing: {
-              'ultra-tight': '-0.06em',
-              'widest-xl': '0.5em',
-            },
-            colors: {
-              background: {
-                light: '#fafafa',
-                dark: '#0a0a0a'
-              },
-              text: {
-                light: '#1a1a1a',
-                dark: '#f0f0f0'
-              }
-            }
-          }
-        }
-      }
-    </script>
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-10">
+        <a href="#home" class="rt-nav-link nav-link">Home</a>
+        <a href="#about" class="rt-nav-link nav-link">About</a>
+        <a href="#projects" class="rt-nav-link nav-link">Projects</a>
+        <a href="#supporters" class="rt-nav-link nav-link">Supporters</a>
+        
+        <button id="theme-toggle" class="p-2 rounded-lg theme-transition theme-btn">
+          <i data-lucide="sun" id="theme-icon" class="w-[14px] h-[14px]"></i>
+        </button>
+        
+        <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" class="rt-btn-primary flex items-center gap-2">
+          <i data-lucide="heart" class="w-3 h-3 fill-current"></i>
+          Support Me
+        </a>
+      </div>
 
-    <!-- Theme Styles -->
-    <link rel="stylesheet" href="css/styles.css">
-    
-    <title>RonTea | Design & Development</title>
-  </head>
-  <body class="bg-background-light text-text-light dark:bg-background-dark dark:text-text-dark transition-colors duration-700 overflow-x-hidden font-sans antialiased">
-    <header class="sticky top-0 z-50 w-full px-4 md:px-0">
-      <nav class="max-w-[1440px] mx-auto mt-4 bg-white/80 dark:bg-[#0a0a0a]/80 backdrop-blur-xl border border-black/5 dark:border-white/5 rounded-2xl transition-all">
-        <div class="px-8 md:px-20 py-5 flex justify-between items-center text-text-light dark:text-text-dark">
-          <a class="font-heading font-bold text-2xl tracking-ultra-tight hover:opacity-60 transition-opacity" href="/">RONTEA</a>
+      <!-- Mobile Toggle -->
+      <button id="mobile-toggle" class="md:hidden">
+        <i data-lucide="menu" id="mobile-icon"></i>
+      </button>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden">
+        <a href="#home" class="rt-nav-link nav-link block py-2">Home</a>
+        <a href="#about" class="rt-nav-link nav-link block py-2">About</a>
+        <a href="#projects" class="rt-nav-link nav-link block py-2">Projects</a>
+        <a href="#supporters" class="rt-nav-link nav-link block py-2">Supporters</a>
+        <div class="flex items-center gap-4 mt-4">
+            <button id="mobile-theme-toggle" class="p-2 rounded-lg theme-transition theme-btn">
+                <i data-lucide="sun" class="w-[14px] h-[14px] pointer-events-none"></i>
+            </button>
+            <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" class="rt-btn-primary flex items-center gap-2">
+                <i data-lucide="heart" class="w-3 h-3 fill-current"></i>
+                Support
+            </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section id="home" class="rt-hero-section lg:pb-12" style="padding-bottom: 0;">
+      <div class="max-w-7xl mx-auto w-full relative z-10 pt-20 lg:pt-0">
+        <div class="rt-grid-hero">
           
-          <div class="flex items-center space-x-12">
-            <div class="hidden md:flex space-x-10 font-heading font-bold text-[10px] tracking-widest-xl uppercase">
-              <a class="hover:opacity-40 transition-opacity" href="/">Home</a>
-              <a class="hover:opacity-40 transition-opacity" href="project.html">Projects</a>
-             
-              <a class="hover:opacity-40 transition-opacity" href="about.html">About</a>
-            </div>
-    
-            <div class="flex items-center space-x-6 border-l border-black/10 dark:border-white/10 pl-6">
-              <button id="theme-toggle" class="relative w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/5 transition-colors" aria-label="Toggle Theme">
-                <svg id="sun-icon" class="hidden w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464l.707-.707a1 1 0 10-1.414-1.414l-.707.707a1 1 0 001.414 1.414zm2.12 8.485a1 1 0 01-1.414 0l-.707-.707a1 1 0 011.414-1.414l.707.707a1 1 0 010 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"></path></svg>
-                <svg id="moon-icon" class="w-5 h-5 text-zinc-400" fill="currentColor" viewBox="0 0 20 20"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
-              </button>
-              
-              <button class="md:hidden" type="button" id="mobile-menu-btn">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-              </button>
+          <!-- Left Text -->
+          <div class="mb-12 lg:mb-0 relative z-20 pointer-events-none fade-in-left js-animate">
+            <span class="text-[#FF5F1F] text-xs font-bold uppercase tracking-[0.3em] mb-4 block">I Am Rontea,</span>
+            <h1 class="rt-hero-title mb-8 hero-text mix-blend-difference theme-transition">
+              Opensource <br />
+              <span class="text-[#FF5F1F]">DEVELOPER.</span>
+            </h1>
+            
+            <div class="flex flex-wrap gap-4 mt-8 pointer-events-auto">
+              <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" class="rt-btn-primary px-10 py-4 text-xs flex items-center gap-2">
+                <i data-lucide="heart" class="w-[14px] h-[14px] fill-current"></i>
+                Support Me
+              </a>
+              <a href="#projects" class="project-btn px-10 py-4 rounded-md text-xs font-bold uppercase tracking-widest transition-all inline-flex items-center">
+                View Projects
+              </a>
             </div>
           </div>
+
+          <!-- Right Image -->
+          <div class="relative flex justify-center items-center h-full min-h-[450px] pb-24 lg:pb-0">
+            <div id="hero-image-container" class="relative z-10 w-full max-w-sm aspect-[4/5] overflow-hidden rounded-2xl shadow-2xl scale-in js-animate theme-transition">
+              <img 
+                id="hero-image"
+                src="img/darkbackground.png" 
+                alt="Rontea" 
+                referrerPolicy="no-referrer"
+                class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+              />
+              <div id="image-shadow" class="absolute inset-0 pointer-events-none transition-colors shadow-[inset_0_0_100px_rgba(0,0,0,0.5)]"></div>
+            </div>
+            
+            <!-- Decorations -->
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 border-b-2 border-r-2 border-[#FF5F1F] rounded-br-2xl -z-10"></div>
+            <div id="border-decor" class="absolute -top-4 -left-4 w-32 h-32 border-t-2 border-l-2 border-white/20 rounded-tl-2xl -z-10 theme-transition"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="relative">
+      <div id="marquee-bg" class="py-8 border-y overflow-hidden whitespace-nowrap bg-white/5 border-white/5 theme-transition">
+        <div class="flex animate-marquee gap-12" id="marquee-content">
+          <!-- Static Marquee Items -->
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+          <div class="flex items-center gap-12"><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">DEVELOPMENT</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">SYSTEMS</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">AUTOMATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">OPEN SOURCE</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">INNOVATION</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div><span class="text-[10px] font-black uppercase tracking-[0.5em] italic opacity-40">CONTINUOUS LEARNING</span><div class="w-1.5 h-1.5 bg-[#FF5F1F] rounded-full"></div></div>
+        </div>
+      </div>
+      
+      <a href="#supporters" id="down-arrow-btn" class="absolute top-full left-1/2 -translate-x-1/2 -translate-y-1/2 w-14 h-14 rounded-full flex items-center justify-center z-30 shadow-2xl transition-all hover:scale-110 active:scale-95 bg-white text-black">
+        <i data-lucide="arrow-down" class="w-6 h-6"></i>
+      </a>
+    </div>
+
+    <!-- Projects -->
+    <section id="projects" class="px-6 md:px-12 py-20 max-w-7xl mx-auto">
+      <div class="mb-20">
+         <h2 class="text-4xl font-black uppercase italic tracking-tighter">Selected Projects</h2>
+      </div>
+
+      <div class="space-y-1" id="projects-container">
+        <!-- Project 01 -->
+        <div class="rt-project-card border-white/10 project-card-border transition-all">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="aspect-video overflow-hidden rounded-xl bg-zinc-900">
+                    <img src="img/Aimanabanner.png" alt="AIMANA-Asparagus" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div>
+                   <span class="text-[#FF5F1F] font-mono text-xs font-bold tracking-widest uppercase mb-4 block">
+                     2026 — Digital Asset Management
+                   </span>
+                   <h3 class="text-6xl md:text-5xl lg:text-6xl font-black uppercase italic tracking-tighter mb-6">AIMANA-Asparagus</h3>
+                   <p class="text-lg mb-10 opacity-50">
+                     A local-first Digital Asset Management (DAM) system that combines asset organization with an AI-powered workspace for generating and managing multimedia content, including images, video, audio, chat interactions, and prompt-driven workflows. It is powered by Google and Pollinations.ai APIs and built using ChatGPT Codex and Gemini.
+                   </p>
+                   <a href="project-01.html" class="group flex items-center gap-4">
+                      <div class="w-12 h-12 rounded-full border flex items-center justify-center transition-all project-link-circle border-white/20 hover:bg-white hover:text-black">
+                         <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                      </div>
+                      <span class="text-xs font-bold uppercase tracking-widest">Read More</span>
+                   </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 02 -->
+        <div class="rt-project-card border-white/10 project-card-border transition-all">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="aspect-video overflow-hidden rounded-xl bg-zinc-900">
+                    <img src="img/galgavbanner.png" alt="GalagaV" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div>
+                   <span class="text-[#FF5F1F] font-mono text-xs font-bold tracking-widest uppercase mb-4 block">
+                     2026 — Prompt Manager
+                   </span>
+                   <h3 class="text-6xl font-black uppercase italic tracking-tighter mb-6">GalagaV</h3>
+                   <p class="text-lg mb-10 opacity-50">
+                     AI Development Operating System — GalagaV is a timeline-driven AI development platform that unifies project planning, prompt orchestration, architecture visualization, repository management, and local execution into a single workspace.
+                   </p>
+                   <a href="project-02.html" class="group flex items-center gap-4">
+                      <div class="w-12 h-12 rounded-full border flex items-center justify-center transition-all project-link-circle border-white/20 hover:bg-white hover:text-black">
+                         <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                      </div>
+                      <span class="text-xs font-bold uppercase tracking-widest">Read More</span>
+                   </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 03 -->
+        <div class="rt-project-card border-white/10 project-card-border transition-all">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="aspect-video overflow-hidden rounded-xl bg-zinc-900">
+                    <img src="img/theme_3builder.png" alt="THEME3_BUILDER" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div>
+                   <span class="text-[#FF5F1F] font-mono text-xs font-bold tracking-widest uppercase mb-4 block">
+                     2026 — Low-Code Visual Development Platform
+                   </span>
+                   <h3 class="text-6xl font-black uppercase italic tracking-tighter mb-6">THEME3_BUILDER</h3>
+                   <p class="text-lg mb-10 opacity-50">
+                     THEME3_BUILDER is a visual page-building extension for the Theme_3 ecosystem, designed to empower developers and designers with a low-code interface for constructing responsive web layouts. The platform combines drag-and-drop simplicity with the power and flexibility of Theme_3's underlying build architecture.
+                   </p>
+                   <a href="project-03.html" class="group flex items-center gap-4">
+                      <div class="w-12 h-12 rounded-full border flex items-center justify-center transition-all project-link-circle border-white/20 hover:bg-white hover:text-black">
+                         <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                      </div>
+                      <span class="text-xs font-bold uppercase tracking-widest">Read More</span>
+                   </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 04 -->
+        <div class="rt-project-card border-white/10 project-card-border transition-all">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="aspect-video overflow-hidden rounded-xl bg-zinc-900">
+                    <img src="img/theme3banner.png" alt="THEME_3" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-700" />
+                </div>
+                <div>
+                   <span class="text-[#FF5F1F] font-mono text-xs font-bold tracking-widest uppercase mb-4 block">
+                     2024 to Present — CLI Tool
+                   </span>
+                   <h3 class="text-6xl font-black uppercase italic tracking-tighter mb-6">THEME_3</h3>
+                   <p class="text-lg mb-10 opacity-50">
+                     A command-line interface (CLI) tool designed to streamline modern front-end development workflows through project scaffolding, asset compilation, build automation, and resource management.
+                   </p>
+                   <a href="project-04.html" class="group flex items-center gap-4">
+                      <div class="w-12 h-12 rounded-full border flex items-center justify-center transition-all project-link-circle border-white/20 hover:bg-white hover:text-black">
+                         <i data-lucide="arrow-up-right" class="w-5 h-5"></i>
+                      </div>
+                      <span class="text-xs font-bold uppercase tracking-widest">Read More</span>
+                   </a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="px-6 md:px-12 py-32 border-t transition-colors duration-300 bg-[#050505] border-white/5">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-24">
+        <div class="md:col-span-1">
+          <h2 class="text-4xl font-black uppercase tracking-tighter mb-8 leading-none hero-text">About.</h2>
+          <p class="leading-relaxed opacity-40 mb-8">
+            I'm a Support Specialist from the Philippines with a passion for web development, system design, and continuous learning. My career began in client support, where I developed strong problem-solving and communication skills. Today, I'm expanding into software development, building projects, exploring modern technologies, and creating solutions that bridge business needs with technical innovation.
+          </p>
+          <button id="open-video-modal" class="flex items-center gap-3 px-6 py-3 rounded-full border border-white/20 hover:border-[#FF5F1F] hover:bg-[#FF5F1F]/10 transition-all font-bold uppercase tracking-widest text-[10px]">
+             <i data-lucide="play" class="w-4 h-4 text-[#FF5F1F]"></i>
+             My Journey
+          </button>
         </div>
         
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden border-t border-black/5 dark:border-white/5 bg-white/90 dark:bg-black/90 rounded-b-2xl overflow-hidden transition-all duration-300">
-          <div class="flex flex-col p-8 space-y-6 font-heading font-bold text-xs tracking-widest-xl uppercase text-center">
-            <a class="hover:opacity-40 transition-opacity" href="/">Home</a>
-            <a class="hover:opacity-40 transition-opacity" href="project.html">Projects</a>
-            <a class="hover:opacity-40 transition-opacity" href="blog.html">Journal</a>
-            <a class="hover:opacity-40 transition-opacity" href="about.html">About</a>
-          </div>
+        <div class="md:col-span-2 grid sm:grid-cols-2 gap-12">
+            <div class="flex flex-col gap-4 border-l pl-8 py-4 border-opacity-10 border-white theme-border">
+                <h4 class="text-xl font-bold uppercase tracking-tight hero-text">SUPPORT EXPERIENCE</h4>
+                <p class="text-sm leading-relaxed opacity-40">Building strong client relationships through communication, troubleshooting, and problem-solving.</p>
+            </div>
+            <div class="flex flex-col gap-4 border-l pl-8 py-4 border-opacity-10 border-white theme-border">
+                <h4 class="text-xl font-bold uppercase tracking-tight hero-text">DEVELOPMENT JOURNEY</h4>
+                <p class="text-sm leading-relaxed opacity-40">Transitioning from technical support into software and web development through hands-on projects.</p>
+            </div>
+            <div class="flex flex-col gap-4 border-l pl-8 py-4 border-opacity-10 border-white theme-border">
+                <h4 class="text-xl font-bold uppercase tracking-tight hero-text">AUTOMATION MINDSET</h4>
+                <p class="text-sm leading-relaxed opacity-40">Finding opportunities to streamline workflows and improve efficiency through technology.</p>
+            </div>
+            <div class="flex flex-col gap-4 border-l pl-8 py-4 border-opacity-10 border-white theme-border">
+                <h4 class="text-xl font-bold uppercase tracking-tight hero-text">LIFELONG LEARNER</h4>
+                <p class="text-sm leading-relaxed opacity-40">Always curious, always building, and always looking for the next challenge to solve.</p>
+            </div>
         </div>
-      </nav>
-    </header>    
-    <main class="relative z-10">
-      <section class="max-w-[1440px] mx-auto px-4 md:px-0">
-          <div class="hero-section flex flex-col md:flex-row border border-black/5 dark:border-white/5 bg-white dark:bg-[#0a0a0a] rounded-[2.5rem] overflow-hidden mt-8">
-              <!-- Image Column: Height increased to extend towards marquee -->
-              <div class="hero-img-col flex-1 relative h-[500px] md:h-[600px] overflow-hidden border-r border-black/5 dark:border-white/5">
-                  <img src="img/rrtea.png" onerror="this.onerror=null;this.src='../../../src/images/rrtea.png';" alt="RonTea Portrait" class="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-[1.5s] ease-in-out scale-105 hover:scale-100">
-                  <div class="absolute inset-0 bg-black/5 pointer-events-none"></div>
-              </div>
-              
-              <!-- Content Column: Aligned to match the new height -->
-              <div class="hero-content-col flex-1 flex flex-col justify-center">
-                  <div class="reveal px-8 md:px-20 py-12 max-w-2xl">
-                      <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400 mb-6 block">EST. 2026</span>
-                      <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold tracking-ultra-tight uppercase leading-tight-08 mb-8">
-                          LOOKING <br> FOR YOUR <br> SUPPORT
-                      </h1>
-                      <p class="text-gray-500 dark:text-gray-400 text-lg md:text-xl mb-10 font-light leading-relaxed">
-                          Creative technologist exploring the synergy between advanced AI and human-centric minimalism.
-                      </p>
-                      <div class="flex flex-wrap gap-6">
-                          <a href="https://github.com/rontea" class="group relative overflow-hidden bg-black text-white dark:bg-white dark:text-black px-10 py-4 rounded-full font-heading font-bold text-[10px] tracking-widest uppercase transition-transform hover:scale-105 shadow-2xl">
-                              <span class="relative z-10">GITHUB</span>
-                              <div class="absolute inset-0 bg-gray-800 dark:bg-gray-200 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-                          </a>
-                          <a href="https://github.com/sponsors/rontea" class="border border-black/20 dark:border-white/20 px-10 py-4 rounded-full font-heading font-bold text-[10px] tracking-widest uppercase hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all">SUPPORT</a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <div class="marquee-wrapper py-12 border-b border-black/5 dark:border-white/5 overflow-hidden whitespace-nowrap bg-white dark:bg-[#0a0a0a] relative">
-          <div class="marquee-inner inline-flex gap-24 animate-marquee opacity-30 hover:opacity-100 transition-opacity duration-1000">
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase">GPT Codex</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400">/</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase">Generative UI</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400">/</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase">Gemini</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400">/</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase">Rontea Rapid Tools</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400">/</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase">AI Design</span>
-              <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400">/</span>
-          </div>
       </div>
-      
-      <!-- Scroll Anchor Arrow -->
-      <div class="flex justify-center -mt-6 relative z-20 reveal">
-          <a href="#supporters" class="group w-12 h-12 rounded-full border border-black/10 dark:border-white/10 bg-white dark:bg-[#0a0a0a] flex items-center justify-center hover:scale-110 transition-all duration-500 shadow-xl" aria-label="Scroll to Supporters">
-              <svg class="w-5 h-5 text-gray-400 group-hover:text-black dark:group-hover:text-white transition-colors animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="animation-duration: 2s;">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
-          </a>
-      </div>
-      <section class="pt-20 md:pt-28 pb-0">
-          <div class="max-w-[1440px] mx-auto px-8 md:px-20">
-              <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-32 gap-8">
-                  <div class="reveal">
-                      <span class="text-[10px] font-bold tracking-widest-xl uppercase text-gray-400 mb-4 block">Portfolio</span>
-                      <h2 class="font-heading text-5xl md:text-7xl font-bold tracking-ultra-tight uppercase">Selected <br> Works</h2>
-                  </div>
-                  <a href="project.html" class="reveal font-heading font-bold text-[10px] tracking-widest-xl uppercase border-b border-black/20 dark:border-white/20 pb-2 hover:opacity-50 transition-opacity">View All Archive</a>
-              </div>
-              
-              <div class="space-y-48">
-                  <!-- Project 01 -->
-                  <div class="project-card reveal group">
-                      <a href="projectDetails.html" class="block no-underline text-inherit">
-                          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                              <div class="lg:col-span-5 space-y-8 order-2 lg:order-1">
-                                  <div class="flex items-center gap-4 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-                                      <span>01</span>
-                                      <div class="w-8 h-[1px] bg-gray-200 dark:bg-gray-800"></div>
-                                      <span>AI Manager</span>
-                                  </div>
-                                  <h3 class="font-heading text-6xl md:text-8xl font-bold tracking-ultra-tight leading-none uppercase group-hover:italic transition-all duration-500">AIMAMA</h3>
-                                  <p class="text-gray-500 dark:text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">AIMANA AI is an all-in-one creative AI platform for generating, managing, and transforming digital content—combining asset management with image, audio, transcription, and chat capabilities.</p>
-                                  <div class="project-arrow w-20 h-20 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-45 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
-                                      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                  </div>
-                              </div>
-                              <div class="lg:col-span-7 order-1 lg:order-2">
-                                  <div class="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 dark:bg-zinc-900 relative">
-                                      <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="Animama Project" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-in-out group-hover:scale-105">
-                                      <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors duration-1000"></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-      
-                  <!-- Project 02 Teaser -->
-                  <div class="project-card reveal group">
-                       <a href="projectDetails.html" class="block no-underline text-inherit">
-                          <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-                              <div class="lg:col-span-7">
-                                  <div class="aspect-[16/10] rounded-[3rem] overflow-hidden shadow-2xl bg-gray-100 dark:bg-zinc-900 relative">
-                                      <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&amp;fit=crop&amp;q=80&amp;w=1200" alt="Voyager Project" class="w-full h-full object-cover transition-transform duration-[1.5s] ease-in-out group-hover:scale-105">
-                                  </div>
-                              </div>
-                              <div class="lg:col-span-5 space-y-8">
-                                  <div class="flex items-center gap-4 text-gray-400 text-[10px] font-bold tracking-widest uppercase">
-                                      <span>02</span>
-                                      <div class="w-8 h-[1px] bg-gray-200 dark:bg-gray-800"></div>
-                                      <span>Cloud Systems</span>
-                                  </div>
-                                  <h3 class="font-heading text-6xl md:text-8xl font-bold tracking-ultra-tight leading-none uppercase group-hover:italic transition-all duration-500">THEME_3 Builder</h3>
-                                  <p class="text-gray-500 dark:text-gray-400 text-lg md:text-xl leading-relaxed max-w-md">Next-generation cloud infrastructure visualization for real-time edge computing networks.</p>
-                                  <div class="project-arrow w-20 h-20 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:rotate-45 group-hover:bg-black group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black">
-                                      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                  </div>
-                              </div>
-                          </div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </section>
-      <section id="supporters" class="pt-20 md:pt-28 pb-20 md:pb-28 bg-black text-white text-center overflow-hidden">
-          <div class="max-w-[1440px] mx-auto px-8 relative z-10">
-              <div class="reveal mb-24">
-                  <span class="text-[10px] font-bold tracking-widest-xl uppercase opacity-40 mb-6 block">Gratitude</span>
-                  <h2 class="font-heading text-5xl md:text-7xl lg:text-8xl font-bold tracking-ultra-tight uppercase mb-8">The Supporters</h2>
-                  <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto font-light">Thank you to the visionaries and partners who empower our creative journey. Your contribution fuels our innovation.</p>
-              </div>
-      
-              <!-- Major Sponsors: Regular/Top Tier -->
-              <div class="reveal mb-32">
-                  <span class="text-[10px] font-bold tracking-widest-xl uppercase opacity-30 mb-12 block">Founding Pillars</span>
-                  <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-20">
-                      <span class="font-heading text-4xl md:text-6xl font-bold uppercase hover:text-gray-300 transition-colors cursor-default">-- ---</span><!-- 
-                      <span class="font-heading text-4xl md:text-6xl font-bold uppercase hover:text-gray-300 transition-colors cursor-default">-- ---</span>
-                      <span class="font-heading text-4xl md:text-6xl font-bold uppercase hover:text-gray-300 transition-colors cursor-default">-- ---</span> -->
-                  </div>
-              </div>
-      
-              <!-- Middle Sponsors: Large Amount -->
-              <div class="reveal mb-24 opacity-80">
-                  <span class="text-[10px] font-bold tracking-widest-xl uppercase opacity-30 mb-10 block">Visionary Contributors</span>
-                  <div class="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 max-w-4xl mx-auto"> <!-- 
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span>
-                      <span class="font-heading text-xl md:text-2xl font-medium uppercase">-- ---</span> -->
-                  </div>
-              </div>
-      
-              <!-- General Sponsors: Tips/Community -->
-              <div class="reveal pt-16 border-t border-white/10">
-                  <span class="text-[10px] font-bold tracking-widest-xl uppercase opacity-30 mb-8 block">Community Support</span>
-                  <div class="flex flex-wrap justify-center gap-x-6 gap-y-3 max-w-5xl mx-auto text-sm opacity-50 hover:opacity-80 transition-opacity duration-500">
-                     <!--  
-                      <span>Alex P.</span>
-                      <span>Jordan M.</span>
-                      <span>Casey L.</span>
-                      <span>Riley W.</span>
-                      <span>Morgan S.</span>
-                      <span>Taylor D.</span>
-                      <span>Quinn B.</span>
-                      <span>Avery G.</span>
-                      <span>Skyler J.</span>
-                      <span>Charlie R.</span>
-                      <span>Dakota F.</span>
-                      <span>Parker T.</span>
-                      <span>Emerson V.</span>
-                      <span>Phoenix H.</span>
-                      <span>River K.</span>
-                      <span>Sage Z.</span>
-                      <span>Hayden M.</span>
-                      <span>Logan B.</span>
-                      <span>Drew C.</span>
-                      <span>Robin G.</span>
-                      <span>Sasha N.</span>
-                      <span>Jamie L.</span>
-                      <span>Peyton S.</span>
-                      -->
-                  </div>
-              </div>
-              
-              <div class="reveal mt-32">
-                  <a href="https://github.com/sponsors/rontea" class="inline-block border border-white/20 px-12 py-5 rounded-full font-heading font-bold text-[10px] tracking-widest uppercase hover:bg-white hover:text-black transition-all">Become a Supporter</a>
-              </div>
-          </div>
-      </section>
-    </main>
+    </section>
 
-    <footer class="py-16 border-t border-black/5 dark:border-white/5 bg-white dark:bg-[#0a0a0a] transition-colors">
-        <div class="max-w-[1440px] mx-auto px-8 md:px-20 flex flex-col md:flex-row justify-between items-center gap-10">
-          <div class="flex flex-col items-center md:items-start gap-4">
-            <a href="/" class="font-heading font-bold text-2xl tracking-ultra-tight hover:opacity-50 transition-opacity">RONTEA</a>
-            <p class="text-[10px] font-bold tracking-widest-xl text-gray-400 uppercase">RAPID-RONTEA / Creative Technologist</p>
-          </div>
+    <!-- Action CTA -->
+    <section id="cta-section" class="py-32 px-6 md:px-12 relative overflow-hidden text-center border-t transition-colors duration-300 bg-[#000000] border-white/5">
+      <div class="relative z-10 max-w-4xl mx-auto">
+        <h2 class="text-[10vw] font-black uppercase tracking-tighter italic leading-[0.85] mb-20 hero-text">
+          Need your <br /> 
+          <span id="cta-stroke" class="text-transparent border-text text-stroke-white">Support</span>
+        </h2>
+        
+        <div class="flex flex-col md:flex-row items-center justify-center gap-12 mt-12 mb-24">
+          <a href="https://github.com/rontea" target="_blank" rel="noreferrer" class="text-2xl md:text-3xl font-light hover:text-[#FF5F1F] transition-colors opacity-80">
+            github.com/rontea
+          </a>
           
-          <div class="flex gap-8 items-center text-gray-500">
-            <!-- LinkedIn -->
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition-colors" aria-label="LinkedIn">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
-            </a>
-            <!-- Instagram -->
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition-colors" aria-label="Instagram">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
-            </a>
-            <!-- Twitter / X -->
-            <a href="https://x.com/dupelawebsite" target="_blank" rel="noopener noreferrer" class="hover:text-black dark:hover:text-white transition-colors" aria-label="X (formerly Twitter)">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932 6.064-6.932zm-1.292 19.494h2.039L6.486 3.24H4.298l13.311 17.407z"></path></svg>
-            </a>
-          </div>
-    
-          <div class="text-[10px] font-bold tracking-widest-xl text-gray-400 uppercase text-center md:text-right">© 2026 RONTEA PORTFOLIO. ALL RIGHTS RESERVED.</div>
+          <div id="cta-divider" class="w-px h-12 hidden md:block bg-white/10"></div>
+          
+          <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" id="cta-btn" class="px-12 py-5 text-sm font-bold uppercase tracking-widest rounded-full transition-all hover:scale-105 flex items-center gap-3 justify-center bg-white text-black hover:bg-white/90">
+            <i data-lucide="heart" class="fill-current w-[18px] h-[18px]"></i>
+            Support Me
+          </a>
         </div>
-    </footer>    
-    <!-- Core Scripts -->
-    <script src="js/main.js"></script>
-  </body>
+      </div>
+    </section>
+
+    <!-- Supporters Section -->
+    <section id="supporters" class="py-24 px-6 md:px-12 transition-colors duration-300 bg-[#050505]">
+      <div class="max-w-7xl mx-auto flex flex-col items-center">
+        <div class="flex flex-col items-center gap-4 mb-24 text-center">
+           <span class="text-xs font-bold font-mono tracking-widest uppercase text-[#FF5F1F]">02 — COMMUNITY</span>
+           <h2 class="text-5xl md:text-7xl font-black uppercase tracking-tighter hero-text">Supporters.</h2>
+         </div>
+
+         <!-- Founding Pillars -->
+        <div class="w-full flex flex-col items-center mb-24">
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-12 opacity-30">Founding Pillars</span>
+          <div class="flex flex-wrap justify-center items-center gap-12 md:gap-24">
+             <span class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter hover:text-[#FF5F1F] transition-colors cursor-default hero-text opacity-50">---</span>
+             <span class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter hover:text-[#FF5F1F] transition-colors cursor-default hero-text opacity-50">---</span>
+             <span class="text-4xl md:text-7xl font-black italic uppercase tracking-tighter hover:text-[#FF5F1F] transition-colors cursor-default hero-text opacity-50">---</span>
+          </div>
+        </div>
+
+        <div class="w-full flex flex-col items-center mb-24">
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-8 opacity-30">Visionary Contributors</span>
+          <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+             <span class="text-2xl md:text-4xl font-bold uppercase tracking-tight hover:text-[#FF5F1F] transition-colors cursor-default opacity-80">---</span>
+             <span class="text-2xl md:text-4xl font-bold uppercase tracking-tight hover:text-[#FF5F1F] transition-colors cursor-default opacity-80">---</span>
+             <span class="text-2xl md:text-4xl font-bold uppercase tracking-tight hover:text-[#FF5F1F] transition-colors cursor-default opacity-80">---</span>
+             <span class="text-2xl md:text-4xl font-bold uppercase tracking-tight hover:text-[#FF5F1F] transition-colors cursor-default opacity-80">---</span>
+          </div>
+        </div>
+
+        <div class="w-full flex flex-col items-center">
+          <span class="text-[10px] font-black uppercase tracking-[0.4em] mb-8 opacity-30">Community Support</span>
+          <div class="flex flex-wrap justify-center items-center gap-6 md:gap-12">
+             <span class="text-xs md:text-lg font-bold uppercase tracking-widest hover:text-[#FF5F1F] transition-colors cursor-default opacity-40">---</span>
+             <span class="text-xs md:text-lg font-bold uppercase tracking-widest hover:text-[#FF5F1F] transition-colors cursor-default opacity-40">---</span>
+             <span class="text-xs md:text-lg font-bold uppercase tracking-widest hover:text-[#FF5F1F] transition-colors cursor-default opacity-40">---</span>
+             <span class="text-xs md:text-lg font-bold uppercase tracking-widest hover:text-[#FF5F1F] transition-colors cursor-default opacity-40">---</span>
+             <span class="text-xs md:text-lg font-bold uppercase tracking-widest hover:text-[#FF5F1F] transition-colors cursor-default opacity-40">---</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="py-20 px-6 md:px-12 border-t mt-40 border-white/5 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-10">
+        <div class="flex items-center gap-8">
+          <a href="https://github.com/rontea" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="GitHub">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/dupelawebsite" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="X (formerly Twitter)">
+            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rontea/" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="LinkedIn">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>
+            </svg>
+          </a>
+        </div>
+        <span class="text-[10px] font-bold uppercase tracking-[0.5em] opacity-20">
+          © 2026 Rontea.
+        </span>
+      </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/90 opacity-0 pointer-events-none transition-opacity duration-500">
+      <div class="relative w-full max-w-5xl px-4 md:px-0">
+        <button id="close-video-modal" class="absolute -top-12 right-4 md:-right-12 text-white/50 hover:text-white transition-colors">
+          <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div class="aspect-video w-full rounded-xl overflow-hidden bg-black shadow-2xl border border-white/10 relative">
+          <!-- Youtube iframe will be injected via JS to prevent autoplay in background -->
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="js/home.js"></script>
+</body>
 </html>

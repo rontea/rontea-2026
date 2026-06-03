@@ -1,0 +1,26 @@
+{
+  "name": "rontea-2026",
+  "version": "1.0.0",
+  "description": "My Portfolio",
+  "homepage": "https://github.com/rontea/rontea-2026#readme",
+  "bugs": {
+    "url": "https://github.com/rontea/rontea-2026/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rontea/rontea-2026.git"
+  },
+  "license": "ISC",
+  "author": "rontea",
+  "type": "module",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vite --port=3000 --host=0.0.0.0",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "echo 'No lint needed for static html project'"
+  },
+  "dependencies": {
+    "vite": "^6.2.3"
+  }
+}

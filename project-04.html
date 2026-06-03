@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THEME_3 — Rontea Vanilla</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  
+  <div id="app-wrapper" class="rt-vanilla-wrapper dark theme-transition">
+    <!-- Header -->
+    <nav class="rt-header header-bg border-b border-white/5 md:border-none">
+      <a href="index.html" class="rt-back-btn group">
+        <div class="back-circle">
+          <i data-lucide="arrow-left" class="w-4 h-4"></i>
+        </div>
+        <span class="text-xs font-bold uppercase tracking-widest hidden sm:block">Back to Home</span>
+      </a>
+
+      <a href="index.html" class="flex items-center group">
+        <img src="img/logo.png" alt="Rontea Logo" referrerPolicy="no-referrer" class="rt-logo h-10 md:h-12 w-auto object-contain hover:scale-105 transition-all duration-300" />
+      </a>
+      
+      <div class="flex items-center gap-2 sm:gap-4">
+        <button id="theme-toggle" class="p-2 rounded-lg theme-transition bg-white/5 hover:bg-white/10 text-zinc-400 hover:text-white dark:bg-white/5 dark:hover:bg-white/10">
+          <i data-lucide="sun" id="theme-icon" class="w-[14px] h-[14px]"></i>
+        </button>
+        <a href="https://github.com/sponsors/rontea" target="_blank" rel="noreferrer" class="rt-btn-primary flex items-center gap-2">
+          <i data-lucide="heart" class="w-3 h-3 fill-current"></i>
+          <span class="hidden sm:inline">Support Me</span>
+          <span class="inline sm:hidden">Support</span>
+        </a>
+      </div>
+    </nav>
+
+    <main class="pt-32 pb-24 px-6 md:px-12" id="project-main">
+      <div class="max-w-7xl mx-auto">
+        <!-- Title Header -->
+        <div class="mb-20">
+          <div class="flex flex-wrap items-center gap-4 mb-6">
+            <span class="text-xs font-bold font-mono tracking-widest uppercase text-[#FF5F1F]">PROJECT 04</span>
+            <div class="h-px w-12 bg-white/10 bg-decor theme-transition" id="title-line"></div>
+            <span class="text-xs font-bold uppercase tracking-widest text-[#a1a1aa]" id="title-year">
+              2024 to Present
+            </span>
+          </div>
+          
+          <h1 class="project-title mb-8" id="proj-title-h1">THEME_3</h1>
+          
+          <p class="text-xl md:text-2xl font-light max-w-2xl leading-relaxed text-[#d4d4d8]" id="proj-description">
+            CLI Tool — A command-line interface (CLI) tool designed to streamline modern front-end development workflows through project scaffolding, asset compilation, build automation, and resource management.
+          </p>
+        </div>
+
+        <div class="w-full aspect-[21/9] overflow-hidden rounded-2xl mb-8 bg-zinc-900">
+          <img src="img/theme3banner.png" alt="THEME_3" class="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-1000" />
+        </div>
+
+        <!-- Metadata & Actions Bar -->
+        <div class="flex flex-col md:flex-row justify-between items-center py-8 border-b mb-16 gap-8 border-white/10 theme-border theme-transition" id="action-bar-border">
+          
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="https://github.com/rontea/theme_3" target="_blank" class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-filled">
+              <i data-lucide="github" class="w-3.5 h-3.5"></i> Source Code
+            </a>
+            <button disabled class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-line opacity-50 cursor-not-allowed">
+              <i data-lucide="play" class="w-3.5 h-3.5"></i> Video Demo
+            </button>
+            <button disabled class="px-5 py-2.5 rounded-full text-[10px] font-bold uppercase tracking-widest flex items-center gap-2 transition-all action-btn-line opacity-50 cursor-not-allowed">
+              <i data-lucide="book-open" class="w-3.5 h-3.5"></i> Tutorial
+            </button>
+          </div>
+
+          <div class="flex items-center gap-12">
+            <div class="flex flex-col items-end">
+              <span class="text-[9px] uppercase font-bold tracking-widest mb-1 text-zinc-500">Year</span>
+              <span class="text-sm font-bold">2024 to Present</span>
+            </div>
+            
+            <div class="flex flex-col items-end">
+              <span class="text-[9px] uppercase font-bold tracking-widest mb-1 text-zinc-500">Categories</span>
+              <div class="flex gap-2">
+                <span class="text-sm font-bold whitespace-nowrap">CLI Tool</span><span class="text-sm font-bold whitespace-nowrap">Node.js</span><span class="text-sm font-bold whitespace-nowrap">Build Tool</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="max-w-4xl mx-auto mb-32">
+           <div class="space-y-16">
+              <!-- Overview Section -->
+              <div class="space-y-6">
+                <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                  Built with Node.js and Gulp, theme_3 helps developers reduce repetitive setup tasks by providing a unified toolkit for creating, organizing, and building web projects. The tool supports HTML templating, SCSS compilation, JavaScript processing, image optimization, icon management, and automated development workflows.
+                </p>
+                <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                  theme_3 is an open-source developer tool created to simplify the process of building and maintaining web projects. It provides a structured workflow for project creation, asset compilation, and deployment while reducing the need for repetitive configuration.
+                </p>
+                <p class="text-lg leading-relaxed text-[#d4d4d8]">
+                  The CLI automates common development tasks such as HTML generation, SCSS compilation, JavaScript processing, image optimization, and resource management, allowing developers to focus on building features instead of maintaining build pipelines.
+                </p>
+              </div>
+
+              <!-- Key Features -->
+              <div class="space-y-6">
+                 <h3 class="text-2xl font-black uppercase italic tracking-tighter">Key Features</h3>
+                 <ul class="list-none space-y-4 text-lg leading-relaxed text-[#d4d4d8]">
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> Project scaffolding and initialization
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> HTML templating with reusable layouts and partials
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> SCSS and CSS compilation pipeline
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> JavaScript build automation
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> Image optimization and asset management
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> Development watch mode with automatic rebuilds
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> Bootstrap, Bulma, and Font Awesome integration
+                   </li>
+                   <li class="flex items-start gap-3">
+                     <span class="text-[#FF5F1F] font-bold mt-1">•</span> Production-ready build generation
+                   </li>
+                 </ul>
+              </div>
+
+              <!-- Tech Stack & Highlights Section -->
+              <div class="grid md:grid-cols-2 gap-12">
+                  <div class="space-y-6">
+                     <h3 class="text-2xl font-black uppercase italic tracking-tighter">Tech Stack</h3>
+                     <div class="flex flex-wrap gap-3 font-mono text-sm">
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">Node.js</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">Gulp</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">SCSS</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">Panini</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">PostCSS</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">BrowserSync</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">Bootstrap</span>
+                       <span class="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[#d4d4d8]">Font Awesome</span>
+                     </div>
+                  </div>
+
+                  <div class="space-y-6">
+                     <h3 class="text-2xl font-black uppercase italic tracking-tighter">Highlights</h3>
+                     <ul class="list-none space-y-3 text-[#d4d4d8]">
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Automated project setup</li>
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Modular HTML architecture</li>
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Build and deployment workflows</li>
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Asset optimization</li>
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Consistent project structure</li>
+                       <li class="flex items-center gap-3"><i data-lucide="check" class="w-4 h-4 text-[#FF5F1F]"></i> Developer-friendly command interface</li>
+                     </ul>
+                  </div>
+              </div>
+           </div>
+        </div>
+
+        <div class="pt-32 border-t border-white/5 next-border theme-transition" id="next-cta-border">
+          <a href="project-01.html" class="group block">
+            <span class="text-xs font-bold uppercase tracking-widest mb-4 block text-zinc-500">Next Project</span>
+            <div class="flex justify-between items-end">
+              <h2 class="text-5xl md:text-6xl lg:text-8xl font-black uppercase italic tracking-tighter transition-transform group-hover:translate-x-4 pr-4 truncate" id="next-title-cta">AIMANA-Asparagus</h2>
+              <div class="next-project-circle">
+                <i data-lucide="arrow-up-right" class="w-8 h-8"></i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="py-12 px-6 md:px-12 border-t flex flex-col md:flex-row justify-between items-center gap-8 border-white/5 transition-colors duration-300 mt-20">
+      <div class="flex flex-col-reverse md:flex-row items-center gap-6">
+        <div class="flex flex-wrap justify-center items-center gap-6">
+          <a href="https://github.com/rontea" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="GitHub">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://x.com/dupelawebsite" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="X (formerly Twitter)">
+            <svg class="w-[18px] h-[18px] fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/rontea/" target="_blank" class="hover:text-[#FF5F1F] transition-colors flex items-center" aria-label="LinkedIn">
+            <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/>
+            </svg>
+          </a>
+        </div>
+        <div class="h-4 w-px bg-white/20 hidden md:block"></div>
+        <span class="text-xs font-bold uppercase tracking-[0.4em] opacity-30 text-center" id="footer-text">
+          © 2026 RONTEA. PROJECT 04
+        </span>
+      </div>
+      <div class="flex gap-4">
+         <button class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center transition-all hover:bg-white hover:text-black dark:border-white/10 dark:hover:bg-white dark:hover:text-black hover:border-white">
+           <i data-lucide="share-2" class="w-4 h-4"></i>
+         </button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/project.js"></script>
+</body>
+</html>
