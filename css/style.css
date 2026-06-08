@@ -4,6 +4,10 @@
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   font-family: var(--font-sans);
   transition: background-color 0.3s, color 0.3s;
@@ -11,6 +15,7 @@ body {
 }
 
 .rt-vanilla-wrapper {
+  overflow-x: hidden;
   min-height: 100vh;
   font-family: var(--font-sans);
   transition: background-color 0.3s, color 0.3s;
@@ -94,12 +99,14 @@ body {
 }
 
 .rt-hero-title {
-    font-size: 3.75rem;
+    font-size: 3rem;
     line-height: 1;
     font-family: var(--font-serif);
     font-style: italic;
     letter-spacing: -0.05em;
     text-transform: uppercase;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 @media (min-width: 768px) { .rt-hero-title { font-size: 5.5rem; } }
 @media (min-width: 1024px) { .rt-hero-title { font-size: 5rem; } }

@@ -262,3 +262,54 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+// Lightbox Feature
+document.addEventListener("DOMContentLoaded", () => {
+    const lightboxModal = document.createElement('div');
+    lightboxModal.className = 'fixed inset-0 z-[100] bg-black/90 hidden items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm cursor-zoom-out p-4 md:p-8';
+    
+    const lightboxImg = document.createElement('img');
+    lightboxImg.className = 'max-w-full max-h-full object-contain rounded-lg shadow-2xl transition-transform duration-300 scale-95';
+    
+    lightboxModal.appendChild(lightboxImg);
+    document.body.appendChild(lightboxModal);
+
+    const images = document.querySelectorAll('img:not([alt*="Logo"]):not([alt*="logo"])');
+    images.forEach(img => {
+        if(img.closest('a') !== null) return;
+        if(img.closest('nav')) return;
+        if(img.id === 'hero-image' || (img.parentNode && typeof img.parentNode.className === 'string' && img.parentNode.className.includes('aspect-[21/9]'))) return;
+        
+        img.classList.add('cursor-zoom-in');
+        img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxModal.classList.remove('hidden');
+            lightboxModal.style.display = 'flex';
+            setTimeout(() => {
+                lightboxModal.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+                document.body.style.overflow = 'hidden';
+            }, 10);
+        });
+    });
+
+    lightboxModal.addEventListener('click', () => {
+        lightboxModal.classList.add('opacity-0');
+        lightboxImg.classList.remove('scale-100');
+        lightboxImg.classList.add('scale-95');
+        setTimeout(() => {
+            lightboxModal.classList.add('hidden');
+            lightboxModal.style.display = '';
+            document.body.style.overflow = '';
+        }, 300);
+    });
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !lightboxModal.classList.contains('hidden')) {
+            lightboxModal.click();
+        }
+    });
+});
